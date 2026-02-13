@@ -1,0 +1,267 @@
+:root {
+  --bg-a: #f5f7fb;
+  --bg-b: #edf2fb;
+  --card: rgba(255, 255, 255, 0.84);
+  --line: #d7dfef;
+  --text: #132033;
+  --muted: #5f6f88;
+  --primary: #0a84ff;
+  --primary-dark: #0669cc;
+  --input-bg: #f5f8ff;
+  --chip: #e9f2ff;
+  --danger: #b8342f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 10% 10%, #ffffff 0%, var(--bg-a) 40%, var(--bg-b) 100%);
+}
+
+.page {
+  width: min(1080px, 92vw);
+  margin: 2.2rem auto;
+}
+
+.card {
+  border: 1px solid #e1e7f4;
+  border-radius: 24px;
+  padding: 1.4rem;
+  backdrop-filter: blur(6px);
+  background: var(--card);
+  box-shadow: 0 14px 45px rgba(19, 32, 51, 0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+}
+
+.reset-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.62rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(130deg, var(--primary), var(--primary-dark));
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 8px 20px rgba(10, 132, 255, 0.28);
+}
+
+.reset-btn:hover {
+  transform: translateY(-1px);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0.45rem;
+  min-width: 680px;
+}
+
+th,
+td {
+  text-align: left;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.4rem 0.6rem;
+}
+
+td {
+  background: #eef3fa;
+  border: 1px solid #d9e2f0;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+.day-cell {
+  font-weight: 800;
+  color: #20324d;
+  min-width: 132px;
+}
+
+.day-name {
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.day-date {
+  margin-top: 0.22rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+input[type="time"],
+input[type="number"] {
+  width: 100%;
+  border: 1px solid #cfd9ea;
+  border-radius: 10px;
+  background: var(--input-bg);
+  color: var(--text);
+  padding: 0.62rem 0.72rem;
+  font: inherit;
+  font-weight: 600;
+}
+
+input:focus {
+  outline: 2px solid rgba(10, 132, 255, 0.3);
+  border-color: var(--primary);
+}
+
+.total-badge {
+  border-radius: 10px;
+  background: linear-gradient(130deg, #1388ff, #0c74de);
+  color: white;
+  text-align: center;
+  padding: 0.63rem 0.45rem;
+  font-weight: 800;
+}
+
+.total-badge.invalid {
+  background: linear-gradient(130deg, #c74f46, var(--danger));
+}
+
+.summary {
+  width: min(360px, 100%);
+  margin: 1.3rem auto 0.4rem;
+  background: linear-gradient(140deg, #0a84ff, #0669cc);
+  color: #f5fbff;
+  text-align: center;
+  border-radius: 18px;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 14px 34px rgba(6, 105, 204, 0.34);
+}
+
+.summary-hours {
+  margin: 0;
+  line-height: 1;
+  font-size: clamp(2.1rem, 1.5rem + 2vw, 3.1rem);
+  font-weight: 800;
+}
+
+.summary-label {
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.summary-sub {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 760px) {
+  .page {
+    margin: 1rem auto;
+    width: min(1080px, 95vw);
+  }
+
+  .card {
+    border-radius: 16px;
+    padding: 0.9rem;
+  }
+
+  .card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .reset-btn {
+    width: 100%;
+  }
+
+  .table-wrap {
+    overflow-x: visible;
+  }
+
+  table {
+    min-width: 0;
+    border-spacing: 0;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    background: #eef3fa;
+    border: 1px solid #d9e2f0;
+    border-radius: 14px;
+    padding: 0.65rem;
+    margin-bottom: 0.7rem;
+  }
+
+  td {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0.35rem 0;
+  }
+
+  td:not(.day-cell)::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  .day-cell {
+    min-width: 0;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid #d9e2f0;
+    margin-bottom: 0.35rem;
+  }
+
+  .total-badge {
+    width: 100%;
+  }
+
+  .summary {
+    margin-top: 1rem;
+  }
+}
